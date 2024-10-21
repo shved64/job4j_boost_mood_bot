@@ -5,15 +5,15 @@ import jakarta.annotation.PreDestroy;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MoodService {
+public class AchievementService {
 
     @PostConstruct
     public void init() {
-        System.out.println("MoodService bean has been initialized.");
+        System.out.println("AchievementService bean has been initialized.");
     }
 
     @PreDestroy
     public void destroy() {
-        System.out.println("MoodService bean is about to be destroyed.");
+        System.out.println("AchievementService bean is about to be destroyed.");
     }
 }
