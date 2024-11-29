@@ -1,11 +1,13 @@
 package ru.job4j.bmb.content;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.objects.InputFile;
 
 import java.io.File;
 
 @Component
+@Qualifier("audioProvider")
 public class ContentProviderAudio implements ContentProvider {
 
     @Override

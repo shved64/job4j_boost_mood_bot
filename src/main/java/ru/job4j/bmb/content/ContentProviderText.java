@@ -1,8 +1,10 @@
 package ru.job4j.bmb.content;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
+@Qualifier("textProvider")
 public class ContentProviderText implements ContentProvider {
 
     @Override
