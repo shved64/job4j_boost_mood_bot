@@ -17,6 +17,9 @@ public class Award {
 
     private int days;
 
+    public Award(String смайликДня, String s, int i) {
+    }
+
     public String getTitle() {
         return title;
     }

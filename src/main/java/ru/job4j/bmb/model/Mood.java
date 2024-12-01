@@ -15,6 +15,9 @@ public class Mood {
 
     private boolean good;
 
+    public Mood(String s, boolean b) {
+    }
+
     public Long getId() {
         return id;
     }
