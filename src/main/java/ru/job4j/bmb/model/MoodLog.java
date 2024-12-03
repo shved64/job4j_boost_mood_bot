@@ -2,6 +2,7 @@ package ru.job4j.bmb.model;
 
 import jakarta.persistence.*;
 
+import java.time.Instant;
 import java.util.Objects;
 
 @Entity
@@ -69,5 +70,6 @@ public class MoodLog {
     public int hashCode() {
         return Objects.hash(id, user, mood, createdAt);
     }
+
 }
 

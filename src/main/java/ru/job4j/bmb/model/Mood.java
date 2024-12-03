@@ -58,5 +58,6 @@ public class Mood {
     public int hashCode() {
         return Objects.hash(id, text, good);
     }
+
 }
 
