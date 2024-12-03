@@ -86,15 +86,12 @@ public class MoodService {
 
     public Optional<Content> awards(long chatId, Long clientId) {
         var content = new Content(chatId);
-
         List<MoodLog> moodLogs = moodLogRepository.findAll().stream()
                 .filter(log -> log.getUser().getId().equals(clientId))
                 .toList();
-
         int positiveDays = 0;
         int consecutiveDays = 0;
         int maxConsecutiveDays = 0;
-
         for (MoodLog log : moodLogs) {
             if (log.getMood().isGood()) {
                 positiveDays++;
@@ -104,10 +101,8 @@ public class MoodService {
                 consecutiveDays = 0;
             }
         }
-
         List<Award> allAwards = awardRepository.findAll();
         List<String> achievedAwards = new ArrayList<>();
-
         for (Award award : allAwards) {
             boolean achieved = switch (award.getId().intValue()) {
                 case 1 -> positiveDays >= 1;
@@ -118,9 +113,9 @@ public class MoodService {
                 case 6 -> positiveDays >= 15;
                 case 7 -> maxConsecutiveDays >= 20;
                 case 8 -> positiveDays >= 30;
-                case 9 -> positiveDays >= 7; // За неделю хорошего настроения
+                case 9 -> positiveDays >= 7;
                 case 10 -> positiveDays >= 25;
-                case 11 -> positiveDays >= 30; // За месяц
+                case 11 -> positiveDays >= 30;
                 case 12 -> positiveDays >= 60;
                 case 13 -> positiveDays >= 45;
                 case 14 -> positiveDays >= 14;
@@ -131,10 +126,7 @@ public class MoodService {
                 achievedAwards.add(award.getTitle() + ": " + award.getDescription());
             }
         }
-        String message = achievedAwards.isEmpty()
-                ? "You have no awards yet."
-                : "Your Awards:\n" + String.join("\n", achievedAwards);
-
+        String message = achievedAwards.isEmpty() ? "You have no awards yet." : "Your Awards:\n" + String.join("\n", achievedAwards);
         content.setText(message);
         return Optional.of(content);
     }
