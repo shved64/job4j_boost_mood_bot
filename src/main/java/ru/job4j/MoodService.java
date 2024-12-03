@@ -89,9 +89,7 @@ public class MoodService {
         List<MoodLog> moodLogs = moodLogRepository.findAll().stream()
                 .filter(log -> log.getUser().getId().equals(clientId))
                 .toList();
-        int positiveDays = 0;
-        int consecutiveDays = 0;
-        int maxConsecutiveDays = 0;
+        int positiveDays = 0; int consecutiveDays = 0; int maxConsecutiveDays = 0;
         for (MoodLog log : moodLogs) {
             if (log.getMood().isGood()) {
                 positiveDays++;
